@@ -21,7 +21,7 @@ namespace LeilaoRT.DomainStudy.Entities
         {
             Title = title;
             Organizer = organizer;
-            auctionDate = AuctionDate;
+            AuctionDate = auctionDate;
             Location = location;
             Status = AuctionStatus.Planned;
         }

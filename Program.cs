@@ -8,7 +8,10 @@ namespace LeilaoRT.DomainStudy
         static void Main(string[] args)
         {
             Location location = new Location("MG", "Paraguaçu");
-            Category category = new Category() { name = "Motociclita" };
+            Category category = new Category() 
+            { 
+                Name = "Motocicleta" 
+            };
 
             Auction leilao1 = new Auction("Leilão Detran-MG", "Detran-MG", new DateTime(2026, 11, 16), location);
 
