@@ -1,0 +1,20 @@
+# Saídas de compilação
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Testes
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+
+# Pacotes NuGet gerados localmente
+*.nupkg
+*.snupkg
