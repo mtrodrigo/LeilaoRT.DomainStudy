@@ -18,6 +18,15 @@ namespace LeilaoRT.DomainStudy
             leilao1.Items.Add(new Item(80, "CG Titan 150 2012", 5000, 12000, category, location));
             leilao1.Items.Add(new Item(82, "Yamaha YBR 125cc 2008", 3500, 8000, category, location));
 
+            try
+            {
+                leilao1.Items.Add(new Item(86, "Moto para teste Error", -1000, 10000, category, location));  
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.WriteLine($"Título do leilão: {leilao1.Title}");
             Console.WriteLine($"Cidade/UF: {leilao1.Location.CityName}/{leilao1.Location.StateCode}");
             Console.WriteLine($"Quantidade de itens: {leilao1.Items.Count}");
@@ -26,7 +35,6 @@ namespace LeilaoRT.DomainStudy
             {
                 Console.WriteLine($"Lote: {item.LotNumber} - Item: {item.Title} - Lance máximo: {item.ReferenceValue} - Valor de venda: {item.EstimatedSaleValue}");
             }
-
         }
     }
 }
