@@ -1,5 +1,6 @@
 ﻿using LeilaoRT.DomainStudy.Entities;
 using LeilaoRT.DomainStudy.ValueObjects;
+using LeilaoRT.DomainStudy.Enums;
 
 namespace LeilaoRT.DomainStudy
 {
@@ -15,12 +16,16 @@ namespace LeilaoRT.DomainStudy
 
             Auction leilao1 = new Auction("Leilão Detran-MG", "Detran-MG", new DateTime(2026, 11, 16), location);
 
-            leilao1.Items.Add(new Item(80, "CG Titan 150 2012", 5000, 12000, category, location));
-            leilao1.Items.Add(new Item(82, "Yamaha YBR 125cc 2008", 3500, 8000, category, location));
+            Item honda = (new Item(80, "CG Titan 150 2012", 5000, 12000, 5800, category, location, leilao1));
+            Item yamaha = (new Item(82, "Yamaha YBR 125cc 2008", 3500, 8000, 3600, category, location, leilao1));
+
+            ItemCost titanCost1 = new ItemCost("Tranferência", 350, CostNature.Estimated);
+            ItemCost titanCost2 = new ItemCost("Manutenção", 800, CostNature.Estimated);
 
             try
             {
-                leilao1.Items.Add(new Item(86, "Moto para teste Error", -1000, 10000, category, location));  
+                  leilao1.AddItem(honda);
+                  leilao1.AddItem(yamaha);
             }
             catch (Exception ex)
             {
@@ -35,6 +40,8 @@ namespace LeilaoRT.DomainStudy
             {
                 Console.WriteLine($"Lote: {item.LotNumber} - Item: {item.Title} - Lance máximo: {item.ReferenceValue} - Valor de venda: {item.EstimatedSaleValue}");
             }
+
+
         }
     }
 }
